@@ -1,0 +1,22 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Start</title>
+<button id="go" style="font-size:24px;padding:16px 32px">Open Google Translate</button>
+<script>
+  const sites = [
+    ["Google Translate", "https://translate.google.com"],
+    ["WordWeb", "https://wordwebonline.com/"],
+    ["Online Notepad", "https://onlinenotepad.org/notepad"]
+  ];
+  const button = document.getElementById("go");
+  let next = 0;
+  button.onclick = () => {
+    if (next < sites.length) {
+      window.open(sites[next][1], "_blank");
+      next++;
+      button.textContent = next < sites.length ? "Open " + sites[next][0] : "Open Edgenuity";
+    } else {
+      location.replace("https://auth.edgenuity.com/login");
+    }
+  };
+</script>
